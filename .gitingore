@@ -1,5 +1,5 @@
 *
-!about
-!categories
-!tags
-!source
+!about/*
+!categories/*
+!tags/*
+!source/*
