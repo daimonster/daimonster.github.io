@@ -289,7 +289,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/24/我的历程/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/24/Java/java版本切换/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Daimonster">
@@ -308,7 +308,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/06/24/我的历程/" itemprop="url">我的历程</a></h1>
+                <a class="post-title-link" href="/2018/06/24/Java/java版本切换/" itemprop="url">未命名</a></h1>
         
 
         <div class="post-meta">
@@ -320,7 +320,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-24T20:06:18+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-24T20:07:48+08:00">
                 2018-06-24
               </time>
             
@@ -360,7 +360,15 @@
       
         
           
-            <h3 id="这是一个小小测试"><a href="#这是一个小小测试" class="headerlink" title="这是一个小小测试"></a>这是一个小小测试</h3><h3 id="个人的奋斗啊…"><a href="#个人的奋斗啊…" class="headerlink" title="个人的奋斗啊…"></a>个人的奋斗啊…</h3>
+            <h2 id="背景-Why"><a href="#背景-Why" class="headerlink" title="背景(Why)"></a>背景(Why)</h2><p>现在经常遇到一些事情需要不同的 JDK 环境. 比如编译 android4.4源码要 JDK6 ,编译 play framework(1.2.7) 需要JDK7(JDK8会报错)，这个时候要是能一键切换就能方便很多。下面我就向大家介绍一下OSX下zsh terminal一键切换JDK版本的方法。</p>
+<h2 id="如何切换-How"><a href="#如何切换-How" class="headerlink" title="如何切换(How)"></a>如何切换(How)</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi ~/.zshrc</span><br></pre></td></tr></table></figure>
+<p>在配置文件底部添加如下配置：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#JDK Switch</span><br><span class="line">export JAVA_6_HOME=/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home</span><br><span class="line">export JAVA_7_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_67.jdk/Contents/Home</span><br><span class="line">export JAVA_8_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_73.jdk/Contents/Home</span><br><span class="line"></span><br><span class="line">export JAVA_HOME=$JAVA_8_HOME</span><br><span class="line"></span><br><span class="line">alias jdk8=&apos;export JAVA_HOME=$JAVA_8_HOME&apos;</span><br><span class="line">alias jdk7=&apos;export JAVA_HOME=$JAVA_7_HOME&apos;</span><br><span class="line">alias jdk6=&apos;export JAVA_HOME=$JAVA_6_HOME&apos;</span><br></pre></td></tr></table></figure></p>
+<p>然后命令行输入jdk6/jdk7/jdk8 就可以得到相应的版本</p>
+<h2 id="运行效果"><a href="#运行效果" class="headerlink" title="运行效果"></a>运行效果</h2><h3 id="Switch-JDK6"><a href="#Switch-JDK6" class="headerlink" title="Switch JDK6"></a>Switch JDK6</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ jdk6</span><br><span class="line">$ java -version</span><br><span class="line">java version &quot;1.6.0_65&quot;</span><br><span class="line">Java(TM) SE Runtime Environment (build 1.6.0_65-b14-468-11M4833)</span><br><span class="line">Java HotSpot(TM) 64-Bit Server VM (build 20.65-b04-468, mixed mode)</span><br></pre></td></tr></table></figure>
+<h3 id="Switch-JDK7"><a href="#Switch-JDK7" class="headerlink" title="Switch JDK7"></a>Switch JDK7</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ jdk7</span><br><span class="line">$ java -version</span><br><span class="line">java version &quot;1.7.0_67&quot;</span><br><span class="line">Java(TM) SE Runtime Environment (build 1.7.0_67-b01)</span><br><span class="line">Java HotSpot(TM) 64-Bit Server VM (build 24.65-b04, mixed mode)</span><br></pre></td></tr></table></figure>
+<h3 id="Switch-JDK8"><a href="#Switch-JDK8" class="headerlink" title="Switch JDK8"></a>Switch JDK8</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ jdk8</span><br><span class="line">$ java -version</span><br><span class="line">java version &quot;1.8.0_73&quot;</span><br><span class="line">Java(TM) SE Runtime Environment (build 1.8.0_73-b02)</span><br><span class="line">Java HotSpot(TM) 64-Bit Server VM (build 25.73-b02, mixed mode)</span><br></pre></td></tr></table></figure>
+<p>切换起来so easy啊, 一颗赛艇😄</p>
+
           
         
       
@@ -408,7 +416,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/24/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/24/Java/maven/maven的使用3-依赖详解/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Daimonster">
@@ -427,7 +435,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/06/24/hello-world/" itemprop="url">Hello World</a></h1>
+                <a class="post-title-link" href="/2018/06/24/Java/maven/maven的使用3-依赖详解/" itemprop="url">未命名</a></h1>
         
 
         <div class="post-meta">
@@ -439,7 +447,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-24T18:51:08+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-24T20:07:48+08:00">
                 2018-06-24
               </time>
             
@@ -479,15 +487,1433 @@
       
         
           
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+            <h2 id="依赖范围"><a href="#依赖范围" class="headerlink" title="依赖范围"></a>依赖范围</h2><ul>
+<li><scope> 控制依赖与3中classpath的关系<br>  scope 的值一个是六种,分别是:<ul>
+<li>compile 默认的范围,编译测试运行都有效</li>
+<li>provided 测试和编译的时候有效</li>
+<li>runtime 在测试和运行时有效</li>
+<li>test 只会在测试范围有效¡¡</li>
+<li>system 测试和编译的时候有效,与本机系统相关联,可移植性差,比如java_home,一直到其它机器上就会产生错误</li>
+<li>import 导入的范围,它只是用在dependencyManagement中,表示从其它的pom中导入dependecy的配置</li>
+</ul>
+</scope></li>
+</ul>
+<h2 id="依赖传递"><a href="#依赖传递" class="headerlink" title="依赖传递"></a>依赖传递</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">在依赖里面</span><br></pre></td></tr></table></figure>
+<h2 id="依赖冲突"><a href="#依赖冲突" class="headerlink" title="依赖冲突"></a>依赖冲突</h2><ol>
+<li>短路优先</li>
+<li>路径相同,先声明先优先</li>
+</ol>
+<h2 id="聚合和继承"><a href="#聚合和继承" class="headerlink" title="聚合和继承"></a>聚合和继承</h2><p>聚合<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;package&gt;pom&lt;/package&gt;</span><br><span class="line">...</span><br><span class="line">&lt;modules&gt;</span><br><span class="line">    &lt;module&gt;../hongxing-bge&lt;/module&gt;</span><br><span class="line">    &lt;module&gt;../hongxing-nange&lt;/module&gt;</span><br><span class="line">    &lt;module&gt;../hongxing-shanji&lt;/module&gt;</span><br><span class="line">&lt;/modules&gt;</span><br></pre></td></tr></table></figure></p>
+<p>继承<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependencyManagement&gt;</span><br><span class="line">    dependencies&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;junit&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;junit&lt;/artifactId&gt;</span><br><span class="line">            &lt;version&gt;4.11&lt;/version&gt;</span><br><span class="line">            &lt;scope&gt;test&lt;/scope&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br><span class="line">    &lt;/dependencies&gt;</span><br><span class="line">&lt;/dependencyMangement&gt;</span><br><span class="line"></span><br><span class="line">//在子pom.xml添加</span><br><span class="line">&lt;parent&gt;</span><br><span class="line">    父pom的坐标</span><br><span class="line">&lt;/parent&gt;</span><br></pre></td></tr></table></figure></p>
+<h2 id="建立web项目"><a href="#建立web项目" class="headerlink" title="建立web项目"></a>建立web项目</h2><p>使用Archetype-webapp建立maven项目¡</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/24/Java/深入理解java虚拟机1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Daimonster">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/24/Java/深入理解java虚拟机1/" itemprop="url">未命名</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-24T20:07:48+08:00">
+                2018-06-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="运行的数据区域"><a href="#运行的数据区域" class="headerlink" title="运行的数据区域"></a>运行的数据区域</h2><p>Java虚拟机管理的内存将会包括一下几个运行时的数据区域,如图所示:</p>
+<p><img src="../images/592290-20170604223752930-353921057.png" alt="数据区"></p>
+<h3 id="程序计数器"><a href="#程序计数器" class="headerlink" title="程序计数器"></a>程序计数器</h3><p>程序计数器是一块较小的内存空间,它可以看做是当前线程所执行的字节码的行号指示器.</p>
+<h3 id="Java虚拟机栈"><a href="#Java虚拟机栈" class="headerlink" title="Java虚拟机栈"></a>Java虚拟机栈</h3><p>Java虚拟机栈也是线程私有的,它的生命周期与线程相同.</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/24/Java/maven/MacOS下安装和配置Maven/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Daimonster">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/24/Java/maven/MacOS下安装和配置Maven/" itemprop="url">未命名</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-24T20:07:48+08:00">
+                2018-06-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="ubuntu下apt安装"><a href="#ubuntu下apt安装" class="headerlink" title="ubuntu下apt安装"></a>ubuntu下apt安装</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install maven</span><br></pre></td></tr></table></figure>
+<h2 id="下载Maven"><a href="#下载Maven" class="headerlink" title="下载Maven"></a>下载Maven</h2><ol>
+<li><p>打开Maven官网下载页面：<a href="http://maven.apache.org/download.cgi" target="_blank" rel="noopener">http://maven.apache.org/download.cgi</a><br>下载:apache-maven-3.5.0-bin.tar.gz</p>
+</li>
+<li><p>解压下载的安装包到某一目录，比如：/Users/yuanweipeng/Documents/maven</p>
+</li>
+</ol>
+<h2 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h2><p>打开terminel输入以下命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi ~/.zshrc</span><br></pre></td></tr></table></figure></p>
+<p>在次文件中添加设置环境变量的命令:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export M2_HOME=/Users/yuanweipeng/Documents/maven/apache-maven-3.5.0</span><br><span class="line">export PATH=$PATH:$M2_HOME/bin</span><br></pre></td></tr></table></figure></p>
+<p>添加之后保存并推出，执行以下命令使配置生效：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source ~/.zshrc</span><br></pre></td></tr></table></figure></p>
+<h2 id="查看配置是否生效"><a href="#查看配置是否生效" class="headerlink" title="查看配置是否生效"></a>查看配置是否生效</h2><p>输入：mvn -v命令，输出如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Apache Maven 3.5.0 (ff8f5e7444045639af65f6095c62210b5713f426; 2017-04-04T03:39:06+08:00)</span><br><span class="line">Maven home: /Users/yuanweipeng/Documents/maven/apache-maven-3.5.0</span><br><span class="line">Java version: 1.8.0_121, vendor: Oracle Corporation</span><br><span class="line">Java home: /Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/jre</span><br><span class="line">Default locale: zh_CN, platform encoding: UTF-8</span><br><span class="line">OS name: &quot;mac os x&quot;, version: &quot;10.12.6&quot;, arch: &quot;x86_64&quot;, family: &quot;mac&quot;</span><br></pre></td></tr></table></figure></p>
+<p>则配置成功。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/24/Java/maven/maven的使用1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Daimonster">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/24/Java/maven/maven的使用1/" itemprop="url">未命名</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-24T20:07:48+08:00">
+                2018-06-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="maven目录结构"><a href="#maven目录结构" class="headerlink" title="maven目录结构"></a>maven目录结构</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">src</span><br><span class="line">    -main</span><br><span class="line">        -java</span><br><span class="line">            -package</span><br><span class="line">    -test</span><br><span class="line">        -java</span><br><span class="line">            -package</span><br><span class="line">    resources //用来存放资源文件</span><br></pre></td></tr></table></figure>
+<h3 id="mvn-常用命令"><a href="#mvn-常用命令" class="headerlink" title="mvn 常用命令"></a>mvn 常用命令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mvn -v //查看maven版本</span><br><span class="line">    compile //编译</span><br><span class="line">    test // 测试</span><br><span class="line">    package // 打包</span><br><span class="line">    clean // 删除target</span><br><span class="line">    install 安装jar包到本地仓库中</span><br></pre></td></tr></table></figure>
+<h3 id="1-用IDEA创建MAVEN工程-创建之后的pom-xml文件如下"><a href="#1-用IDEA创建MAVEN工程-创建之后的pom-xml文件如下" class="headerlink" title="1 用IDEA创建MAVEN工程,创建之后的pom.xml文件如下:"></a>1 用IDEA创建MAVEN工程,创建之后的pom.xml文件如下:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line"></span><br><span class="line">&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot;</span><br><span class="line">         xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><br><span class="line">         xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;</span><br><span class="line">    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;</span><br><span class="line">    &lt;groupId&gt;dai.maven.test&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;manventest&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;</span><br><span class="line"></span><br><span class="line">&lt;/project&gt;</span><br></pre></td></tr></table></figure>
+<p>pom.xml常用标签解释:</p>
+<ul>
+<li><p>groupId定义了项目属于哪个组，这个组往往和项目所在的组织或公司存在关联。譬如在googlecode上建立了一个名为myapp的项目，那么groupId就应该是com.googlecode.myapp，如果你的公司是mycom，有一个项目为myapp，那么groupId就应该是 com.mycom.myapp。</p>
+</li>
+<li><p>artifactId定义了当前Maven项目在组中唯一的ID，我们为这个maventest项目定义artifactId为maventest.</p>
+</li>
+<li><p>version指定了maventest项目当前的版本</p>
+</li>
+<li><p>packaging指的是打包的方式,不指定默认的是jar</p>
+</li>
+<li>name 项目描述名</li>
+<li>url 项目地址</li>
+</ul>
+<h3 id="2-编写主代码"><a href="#2-编写主代码" class="headerlink" title="2 编写主代码"></a>2 编写主代码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">package dai.maven.test;</span><br><span class="line"></span><br><span class="line">public class maventest &#123;</span><br><span class="line">    public String sayHello()&#123;</span><br><span class="line">        return &quot;Hello Maven&quot;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        System.out.print(new maventest().sayHello());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="3-使用maven进行编译"><a href="#3-使用maven进行编译" class="headerlink" title="3 使用maven进行编译"></a>3 使用maven进行编译</h3><p>运行命令:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn clean compile</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li><p>clean告诉Maven清理输出目录target/，compile告诉Maven编译项目主代码</p>
+</li>
+<li><p>从输出中看到Maven首先执行了clean:clean任务，删除target/目录。默认情况下，Maven构建的所有输出都在target/目录中;</p>
+</li>
+<li><p>接着执行resources:resources任务(未定义项目资源，暂且 略过);</p>
+</li>
+<li><p>最后执行compiler:compile任务，将项目主代码编译至target/classes目录(编译好的类为 com/juvenxu/mvnbook/helloworld/HelloWorld.Class)。</p>
+</li>
+</ul>
+<h3 id="4-编写测试代码"><a href="#4-编写测试代码" class="headerlink" title="4 编写测试代码"></a>4 编写测试代码</h3><p>在idea中执行<code>alt + n</code>命令来添加依赖</p>
+<p>pom代码中就添加了如下代码:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependencies&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;junit&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;junit&lt;/artifactId&gt;</span><br><span class="line">        &lt;version&gt;4.7&lt;/version&gt;</span><br><span class="line">        &lt;scope&gt;test&lt;/scope&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">&lt;/dependencies&gt;</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li><p>这里添加了一个依赖——groupId 是junit，artifactId是junit，version是4.7</p>
+</li>
+<li><p>前面提到groupId、artifactId和version是任何一个Maven项目最基本的坐标，JUnit也不例外， 有了这段声明，Maven就能够自动下载junit-4.7.jar。</p>
+</li>
+<li><p>上述POM代码中还有¡一个值为test的元素scope，scope为依赖范围，若依赖范围为test则表示该依赖只对测试有效。换句话说，测试代码中的import JUnit代码是没有问题的，但是如果在主代码中用import JUnit代码，就会造成编译错误。如果不声明依赖范围，那么默认值就是compile，表示该依赖对主代码和测试代码都有效。</p>
+</li>
+<li>optional 设置依赖是否可选,默认是false </li>
+<li>exclusions 排除依赖的列表</li>
+<li>depencyManagenment 依赖管理,主要用在父模块中,供子模块使用</li>
+<li>build 对构件行为提供相应的支持经常在里面会看到<ul>
+<li>plugins 插件列表</li>
+</ul>
+</li>
+<li>parent 通常用于子模块对于父模块的继承</li>
+<li>modules 运行多个maven项目</li>
+</ul>
+<h3 id="5-添加maven的编译插件"><a href="#5-添加maven的编译插件" class="headerlink" title="5 添加maven的编译插件"></a>5 添加maven的编译插件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;build&gt;</span><br><span class="line">    &lt;finalName&gt;XXX&lt;/finalName&gt;</span><br><span class="line">    &lt;plugins&gt;</span><br><span class="line">    	&lt;plugin&gt;</span><br><span class="line">    		&lt;!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-compiler-plugin --&gt;</span><br><span class="line">   			&lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;</span><br><span class="line">   			&lt;artifactId&gt;maven-compiler-plugin&lt;/artifactId&gt;</span><br><span class="line">   			&lt;version&gt;3.7.0&lt;/version&gt;</span><br><span class="line">   			&lt;configuration&gt;</span><br><span class="line">   				&lt;source&gt;1.8&lt;/source&gt;</span><br><span class="line">   				&lt;target&gt;1.8&lt;/target&gt;</span><br><span class="line">   				&lt;encoding&gt;UTF8&lt;/encoding&gt;</span><br><span class="line">   			&lt;/configuration&gt;</span><br><span class="line">	    &lt;/plugin&gt;</span><br><span class="line">    &lt;/plugins&gt;</span><br><span class="line">  &lt;/build&gt;</span><br></pre></td></tr></table></figure>
+<p>这样不会出现编译警告</p>
+<h3 id="6-打包和运行"><a href="#6-打包和运行" class="headerlink" title="6 打包和运行"></a>6 打包和运行</h3><p>使用如下命令进行打包:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn clean package</span><br></pre></td></tr></table></figure></p>
+<p>打包之后就生成了<code>maventest-1.0-SNAPSHOT.jar</code></p>
+<p>如果想要其它的Maven项目执行这个jar,就必须<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn clean install</span><br></pre></td></tr></table></figure></p>
+<h3 id="7-运行测试命令"><a href="#7-运行测试命令" class="headerlink" title="7 运行测试命令"></a>7 运行测试命令</h3><p>对test文件进行测试执行命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn test</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/24/Java/maven/maven的使用2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Daimonster">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/24/Java/maven/maven的使用2/" itemprop="url">未命名</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-24T20:07:48+08:00">
+                2018-06-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="archtype插件"><a href="#archtype插件" class="headerlink" title="archtype插件"></a>archtype插件</h3><p>作用:用于创建符合maven规定的目录骨架<br>之后就是按照使用1步骤填写groupId,artifactId</p>
+<h3 id="生成骨架命令"><a href="#生成骨架命令" class="headerlink" title="生成骨架命令"></a>生成骨架命令</h3><p>有两种方式,第一种:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn archtype:generate</span><br></pre></td></tr></table></figure></p>
+<p>第二种:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mvn archetype:generate -DgroupId=com.imooc.maven04 -DartifactId=maven04-demo -Dversion=1.0.0SNAPSHOT -Dpackage=com.imooc.maven04-demo</span><br></pre></td></tr></table></figure></p>
+<h3 id="maven的坐标和仓库"><a href="#maven的坐标和仓库" class="headerlink" title="maven的坐标和仓库"></a>maven的坐标和仓库</h3><ul>
+<li><p>坐标:构件通过坐标作为其唯一的标识</p>
+</li>
+<li><p>仓库:分为两种,本地仓库和远程仓库</p>
+</li>
+<li><p>镜像仓库:由于墙的原因,我们这里访问镜像仓库,可以加快下载的速度</p>
+</li>
+</ul>
+<p>在maven的安装文件里面(用命令<code>mvn -v</code>就可以查看安装地址),进入到conf文件夹,<br>里面编辑settings.xml,找到<mirrors>标签,将镜像仓库的地址添加进去</mirrors></p>
+<p>这里写一个阿里云的中央仓库<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;mirrors&gt;</span><br><span class="line">    &lt;mirror&gt;</span><br><span class="line">        &lt;id&gt;alimaven&lt;/id&gt;</span><br><span class="line">        &lt;name&gt;aliyun maven&lt;/name&gt;</span><br><span class="line">        &lt;url&gt;http://maven.aliyun.com/nexus/content/groups/public/&lt;/url&gt;</span><br><span class="line">        &lt;mirrorOf&gt;central&lt;/mirrorOf&gt;</span><br><span class="line">    &lt;/mirror&gt;</span><br><span class="line">&lt;/mirrors&gt;</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>更改本地仓库的位置<br>maven默认的仓库地址是存在.2地址里面的,如果想要修改还是在上面的settings.xml,找到<localrepository>标签,在里面添加</localrepository></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;localRepository&gt;/path/to/repo&lt;/localRepository&gt;// 里面添加的是你想要更改的仓库地址</span><br></pre></td></tr></table></figure>
+<h3 id="maven的生命周期和插件"><a href="#maven的生命周期和插件" class="headerlink" title="maven的生命周期和插件"></a>maven的生命周期和插件</h3><p>完整的项目构件过程包括:</p>
+<p>清理,编译,测试,打包,集成测试,验证,部署</p>
+<p>maven的生命周期: </p>
+<p>clean(清理项目),default(构建项目,compile,test,package,install),site(生成项目站点)</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/24/Java/Java-配置相关/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Daimonster">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/24/Java/Java-配置相关/" itemprop="url">未命名</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-24T20:07:48+08:00">
+                2018-06-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="windows"><a href="#windows" class="headerlink" title="windows"></a>windows</h2><h3 id="windows下javac乱码问题"><a href="#windows下javac乱码问题" class="headerlink" title="windows下javac乱码问题"></a>windows下javac乱码问题</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">将这句 </span><br><span class="line">alias javac=’javac -J-Dfile.encoding=UTF-8’ </span><br><span class="line">alias java=’java -Dfile.encoding=UTF-8’ </span><br><span class="line">复制到文件C:\Program Files\Git\etc\bash.bashrc最后一行，保存 </span><br><span class="line">重启gitbash，问题即刻解决~</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/24/Java/Java小知识点积累/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Daimonster">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/24/Java/Java小知识点积累/" itemprop="url">未命名</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-24T20:07:48+08:00">
+                2018-06-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="String与char的转换"><a href="#String与char的转换" class="headerlink" title="String与char的转换"></a>String与char的转换</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">String str</span><br><span class="line">//str==&gt;char数组</span><br><span class="line">char[] chars = str.toCharArray();</span><br><span class="line">//char数组==&gt;String</span><br><span class="line">String.valueOf(chars);</span><br></pre></td></tr></table></figure>
+<h2 id="生成随机数"><a href="#生成随机数" class="headerlink" title="生成随机数"></a>生成随机数</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Random ran = new Random();</span><br><span class="line">// 生成1 - 100 的随机数</span><br><span class="line">int temp = ran.nextInt(100) + 1;</span><br></pre></td></tr></table></figure>
+<h2 id="直接打印出一个数组"><a href="#直接打印出一个数组" class="headerlink" title="直接打印出一个数组"></a>直接打印出一个数组</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">System.out.println(Arrays.toString(num));</span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/24/Java/idea破解/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Daimonster">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/24/Java/idea破解/" itemprop="url">未命名</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-24T20:07:48+08:00">
+                2018-06-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><a href="https://www.cnblogs.com/zqy123456/articles/7903385.html" target="_blank" rel="noopener">https://www.cnblogs.com/zqy123456/articles/7903385.html</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/24/Java/Job-interview/Spring题目搜集/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Daimonster">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/06/24/Java/Job-interview/Spring题目搜集/" itemprop="url">未命名</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-24T20:07:48+08:00">
+                2018-06-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><p>Spring 概述</p>
+<p>依赖注入</p>
+<p>Spring beans</p>
+<p>Spring注解</p>
+<p>Spring数据访问</p>
+<p>Spring面向切面编程（AOP）</p>
+<p>Spring MVC</p>
+<h2 id="Spring-概述"><a href="#Spring-概述" class="headerlink" title="Spring 概述"></a>Spring 概述</h2><ol>
+<li>什么是spring?</li>
+</ol>
+<p>Spring 是个java企业级应用的开源开发框架。Spring主要用来开发Java应用，但是有些扩展是针对构建J2EE平台的web应用。Spring 框架目标是简化Java企业级应用开发，并通过POJO为基础的编程模型促进良好的编程习惯。</p>
+<ol start="2">
+<li>使用Spring框架的好处是什么？</li>
+</ol>
+<p>轻量：Spring 是轻量的，基本的版本大约2MB。</p>
+<p>控制反转：Spring通过控制反转实现了松散耦合，对象们给出它们的依赖，而不是创建或查找依赖的对象们。</p>
+<p>面向切面的编程(AOP)：Spring支持面向切面的编程，并且把应用业务逻辑和系统服务分开。</p>
+<p>容器：Spring 包含并管理应用中对象的生命周期和配置。</p>
+<p>MVC框架：Spring的WEB框架是个精心设计的框架，是Web框架的一个很好的替代品。</p>
+<p>事务管理：Spring 提供一个持续的事务管理接口，可以扩展到上至本地事务下至全局事务（JTA）。</p>
+<p>异常处理：Spring 提供方便的API把具体技术相关的异常（比如由JDBC，Hibernate or JDO抛出的）转化为一致的unchecked 异常。</p>
+<ol start="3">
+<li>Spring由哪些模块组成?</li>
+</ol>
+<p>以下是Spring 框架的基本模块：</p>
+<p>Core module</p>
+<p>Bean module</p>
+<p>Context module</p>
+<p>Expression Language module</p>
+<p>JDBC module</p>
+<p>ORM module</p>
+<p>OXM module</p>
+<p>Java Messaging Service(JMS) module</p>
+<p>Transaction module</p>
+<p>Web module</p>
+<p>Web-Servlet module</p>
+<p>Web-Struts module</p>
+<p>Web-Portlet module</p>
+<ol start="4">
+<li>核心容器（应用上下文) 模块。</li>
+</ol>
+<p>这是基本的Spring模块，提供spring 框架的基础功能，BeanFactory 是 任何以spring为基础的应用的核心。Spring 框架建立在此模块之上，它使Spring成为一个容器。</p>
+<ol start="5">
+<li>BeanFactory – BeanFactory 实现举例。</li>
+</ol>
+<p>Bean 工厂是工厂模式的一个实现，提供了控制反转功能，用来把应用的配置和依赖从正真的应用代码中分离。</p>
+<p>最常用的BeanFactory 实现是XmlBeanFactory 类。</p>
+<ol start="6">
+<li>XMLBeanFactory</li>
+</ol>
+<p>最常用的就是org.springframework.beans.factory.xml.XmlBeanFactory ，它根据XML文件中的定义加载beans。该容器从XML 文件读取配置元数据并用它去创建一个完全配置的系统或应用。</p>
+<ol start="7">
+<li>解释AOP模块</li>
+</ol>
+<p>AOP模块用于发给我们的Spring应用做面向切面的开发， 很多支持由AOP联盟提供，这样就确保了Spring和其他AOP框架的共通性。这个模块将元数据编程引入Spring。</p>
+<ol start="8">
+<li>解释JDBC抽象和DAO模块。</li>
+</ol>
+<p>通过使用JDBC抽象和DAO模块，保证数据库代码的简洁，并能避免数据库资源错误关闭导致的问题，它在各种不同的数据库的错误信息之上，提供了一个统一的异常访问层。它还利用Spring的AOP 模块给Spring应用中的对象提供事务管理服务。</p>
+<ol start="9">
+<li>解释对象/关系映射集成模块。</li>
+</ol>
+<p>Spring 通过提供ORM模块，支持我们在直接JDBC之上使用一个对象/关系映射映射(ORM)工具，Spring 支持集成主流的ORM框架，如Hiberate,JDO和 iBATIS SQL Maps。Spring的事务管理同样支持以上所有ORM框架及JDBC。</p>
+<ol start="10">
+<li>解释WEB 模块。</li>
+</ol>
+<p>Spring的WEB模块是构建在application context 模块基础之上，提供一个适合web应用的上下文。这个模块也包括支持多种面向web的任务，如透明地处理多个文件上传请求和程序级请求参数的绑定到你的业务对象。它也有对Jakarta Struts的支持。</p>
+<ol start="12">
+<li>Spring配置文件</li>
+</ol>
+<p>Spring配置文件是个XML 文件，这个文件包含了类信息，描述了如何配置它们，以及如何相互调用。</p>
+<ol start="13">
+<li>什么是Spring IOC 容器？</li>
+</ol>
+<p>Spring IOC 负责创建对象，管理对象（通过依赖注入（DI），装配对象，配置对象，并且管理这些对象的整个生命周期。</p>
+<ol start="14">
+<li>IOC的优点是什么？</li>
+</ol>
+<p>IOC 或 依赖注入把应用的代码量降到最低。它使应用容易测试，单元测试不再需要单例和JNDI查找机制。最小的代价和最小的侵入性使松散耦合得以实现。IOC容器支持加载服务时的饿汉式初始化和懒加载。</p>
+<ol start="15">
+<li>ApplicationContext通常的实现是什么?</li>
+</ol>
+<p>FileSystemXmlApplicationContext ：此容器从一个XML文件中加载beans的定义，XML Bean 配置文件的全路径名必须提供给它的构造函数。</p>
+<p>ClassPathXmlApplicationContext：此容器也从一个XML文件中加载beans的定义，这里，你需要正确设置classpath因为这个容器将在classpath里找bean配置。</p>
+<p>WebXmlApplicationContext：此容器加载一个XML文件，此文件定义了一个WEB应用的所有bean。</p>
+<ol start="16">
+<li>Bean 工厂和 Application contexts 有什么区别？</li>
+</ol>
+<p>Application contexts提供一种方法处理文本消息，一个通常的做法是加载文件资源（比如镜像），它们可以向注册为监听器的bean发布事件。另外，在容器或容器内的对象上执行的那些不得不由bean工厂以程序化方式处理的操作，可以在Application contexts中以声明的方式处理。Application contexts实现了MessageSource接口，该接口的实现以可插拔的方式提供获取本地化消息的方法。</p>
+<ol start="17">
+<li>一个Spring的应用看起来象什么？</li>
+</ol>
+<p>一个定义了一些功能的接口。</p>
+<p>这实现包括属性，它的Setter ， getter 方法和函数等。</p>
+<p>Spring AOP。</p>
+<p>Spring 的XML 配置文件。</p>
+<p>使用以上功能的客户端程序。</p>
+<p>依赖注入</p>
+<ol start="18">
+<li>什么是Spring的依赖注入？</li>
+</ol>
+<p>依赖注入，是IOC的一个方面，是个通常的概念，它有多种解释。这概念是说你不用创建对象，而只需要描述它如何被创建。你不在代码里直接组装你的组件和服务，但是要在配置文件里描述哪些组件需要哪些服务，之后一个容器（IOC容器）负责把他们组装起来。</p>
+<ol start="19">
+<li>有哪些不同类型的IOC（依赖注入）方式？</li>
+</ol>
+<p>构造器依赖注入：构造器依赖注入通过容器触发一个类的构造器来实现的，该类有一系列参数，每个参数代表一个对其他类的依赖。</p>
+<p>Setter方法注入：Setter方法注入是容器通过调用无参构造器或无参static工厂 方法实例化bean之后，调用该bean的setter方法，即实现了基于setter的依赖注入。</p>
+<ol start="20">
+<li>哪种依赖注入方式你建议使用，构造器注入，还是 Setter方法注入？</li>
+</ol>
+<p>你两种依赖方式都可以使用，构造器注入和Setter方法注入。最好的解决方案是用构造器参数实现强制依赖，setter方法实现可选依赖。</p>
+<p>Spring Beans</p>
+<p>21.什么是Spring beans?</p>
+<p>Spring beans 是那些形成Spring应用的主干的java对象。它们被Spring IOC容器初始化，装配，和管理。这些beans通过容器中配置的元数据创建。比如，以XML文件中 的形式定义。</p>
+<p>Spring 框架定义的beans都是单件beans。在bean tag中有个属性”singleton”，如果它被赋为TRUE，bean 就是单件，否则就是一个 prototype bean。默认是TRUE，所以所有在Spring框架中的beans 缺省都是单件。</p>
+<ol start="22">
+<li>一个 Spring Bean 定义 包含什么？</li>
+</ol>
+<p>一个Spring Bean 的定义包含容器必知的所有配置元数据，包括如何创建一个bean，它的生命周期详情及它的依赖。</p>
+<ol start="23">
+<li>如何给Spring 容器提供配置元数据?</li>
+</ol>
+<p>这里有三种重要的方法给Spring 容器提供配置元数据。</p>
+<p>XML配置文件。</p>
+<p>基于注解的配置。</p>
+<p>基于java的配置。</p>
+<ol start="24">
+<li>你怎样定义类的作用域?</li>
+</ol>
+<p>当定义一个 在Spring里，我们还能给这个bean声明一个作用域。它可以通过bean 定义中的scope属性来定义。如，当Spring要在需要的时候每次生产一个新的bean实例，bean的scope属性被指定为prototype。另一方面，一个bean每次使用的时候必须返回同一个实例，这个bean的scope 属性 必须设为 singleton。</p>
+<ol start="25">
+<li>解释Spring支持的几种bean的作用域。</li>
+</ol>
+<p>Spring框架支持以下五种bean的作用域：</p>
+<p>singleton : bean在每个Spring ioc 容器中只有一个实例。</p>
+<p>prototype：一个bean的定义可以有多个实例。</p>
+<p>request：每次http请求都会创建一个bean，该作用域仅在基于web的Spring ApplicationContext情形下有效。</p>
+<p>session：在一个HTTP Session中，一个bean定义对应一个实例。该作用域仅在基于web的Spring ApplicationContext情形下有效。</p>
+<p>global-session：在一个全局的HTTP Session中，一个bean定义对应一个实例。该作用域仅在基于web的Spring ApplicationContext情形下有效。</p>
+<p>缺省的Spring bean 的作用域是Singleton.</p>
+<ol start="26">
+<li>Spring框架中的单例bean是线程安全的吗?</li>
+</ol>
+<p>不，Spring框架中的单例bean不是线程安全的。</p>
+<ol start="27">
+<li>解释Spring框架中bean的生命周期。</li>
+</ol>
+<p>Spring容器 从XML 文件中读取bean的定义，并实例化bean。</p>
+<p>Spring根据bean的定义填充所有的属性。</p>
+<p>如果bean实现了BeanNameAware 接口，Spring 传递bean 的ID 到 setBeanName方法。</p>
+<p>如果Bean 实现了 BeanFactoryAware 接口， Spring传递beanfactory 给setBeanFactory 方法。</p>
+<p>如果有任何与bean相关联的BeanPostProcessors，Spring会在postProcesserBeforeInitialization()方法内调用它们。</p>
+<p>如果bean实现IntializingBean了，调用它的afterPropertySet方法，如果bean声明了初始化方法，调用此初始化方法。</p>
+<p>如果有BeanPostProcessors 和bean 关联，这些bean的postProcessAfterInitialization() 方法将被调用。</p>
+<p>如果bean实现了 DisposableBean，它将调用destroy()方法。</p>
+<ol start="28">
+<li>哪些是重要的bean生命周期方法？ 你能重载它们吗？</li>
+</ol>
+<p>有两个重要的bean 生命周期方法，第一个是setup ， 它是在容器加载bean的时候被调用。第二个方法是 teardown 它是在容器卸载类的时候被调用。</p>
+<p>The bean 标签有两个重要的属性（init-method和destroy-method）。用它们你可以自己定制初始化和注销方法。它们也有相应的注解（@PostConstruct和@PreDestroy）。</p>
+<ol start="29">
+<li>什么是Spring的内部bean？</li>
+</ol>
+<p>当一个bean仅被用作另一个bean的属性时，它能被声明为一个内部bean，为了定义inner bean，在Spring 的 基于XML的 配置元数据中，可以在 或 元素内使用 元素，内部bean通常是匿名的，它们的Scope一般是prototype。</p>
+<ol start="30">
+<li>在 Spring中如何注入一个java集合？</li>
+</ol>
+<p>Spring提供以下几种集合的配置元素：</p>
+<p>类型用于注入一列值，允许有相同的值。</p>
+<p>类型用于注入一组值，不允许有相同的值。</p>
+<p>类型用于注入一组键值对，键和值都可以为任意类型。</p>
+<p>类型用于注入一组键值对，键和值都只能为String类型。</p>
+<ol start="31">
+<li>什么是bean装配?</li>
+</ol>
+<p>装配，或bean 装配是指在Spring 容器中把bean组装到一起，前提是容器需要知道bean的依赖关系，如何通过依赖注入来把它们装配到一起。</p>
+<ol start="32">
+<li>什么是bean的自动装配？</li>
+</ol>
+<p>Spring 容器能够自动装配相互合作的bean，这意味着容器不需要和配置，能通过Bean工厂自动处理bean之间的协作。</p>
+<ol start="33">
+<li>解释不同方式的自动装配 。</li>
+</ol>
+<p>有五种自动装配的方式，可以用来指导Spring容器用自动装配方式来进行依赖注入。</p>
+<p>no：默认的方式是不进行自动装配，通过显式设置ref 属性来进行装配。</p>
+<p>byName：通过参数名 自动装配，Spring容器在配置文件中发现bean的autowire属性被设置成byname，之后容器试图匹配、装配和该bean的属性具有相同名字的bean。</p>
+<p>byType:：通过参数类型自动装配，Spring容器在配置文件中发现bean的autowire属性被设置成byType，之后容器试图匹配、装配和该bean的属性具有相同类型的bean。如果有多个bean符合条件，则抛出错误。</p>
+<p>constructor：这个方式类似于byType， 但是要提供给构造器参数，如果没有确定的带参数的构造器参数类型，将会抛出异常。</p>
+<p>autodetect：首先尝试使用constructor来自动装配，如果无法工作，则使用byType方式。</p>
+<p>34.自动装配有哪些局限性 ?</p>
+<p>自动装配的局限性是：</p>
+<p>重写： 你仍需用 和 配置来定义依赖，意味着总要重写自动装配。</p>
+<p>基本数据类型：你不能自动装配简单的属性，如基本数据类型，String字符串，和类。</p>
+<p>模糊特性：自动装配不如显式装配精确，如果有可能，建议使用显式装配。</p>
+<ol start="35">
+<li>你可以在Spring中注入一个null 和一个空字符串吗？</li>
+</ol>
+<p>可以。</p>
+<p>Spring注解</p>
+<ol start="36">
+<li>什么是基于Java的Spring注解配置? 给一些注解的例子.</li>
+</ol>
+<p>基于Java的配置，允许你在少量的Java注解的帮助下，进行你的大部分Spring配置而非通过XML文件。</p>
+<p>以@Configuration 注解为例，它用来标记类可以当做一个bean的定义，被Spring IOC容器使用。另一个例子是@Bean注解，它表示此方法将要返回一个对象，作为一个bean注册进Spring应用上下文。</p>
+<ol start="37">
+<li>什么是基于注解的容器配置?</li>
+</ol>
+<p>相对于XML文件，注解型的配置依赖于通过字节码元数据装配组件，而非尖括号的声明。</p>
+<p>开发者通过在相应的类，方法或属性上使用注解的方式，直接组件类中进行配置，而不是使用xml表述bean的装配关系。</p>
+<ol start="38">
+<li>怎样开启注解装配？</li>
+</ol>
+<p>注解装配在默认情况下是不开启的，为了使用注解装配，我们必须在Spring配置文件中配置 元素。</p>
+<ol start="39">
+<li>@Required 注解</li>
+</ol>
+<p>这个注解表明bean的属性必须在配置的时候设置，通过一个bean定义的显式的属性值或通过自动装配，若@Required注解的bean属性未被设置，容器将抛出BeanInitializationException。</p>
+<ol start="40">
+<li>@Autowired 注解</li>
+</ol>
+<p>@Autowired 注解提供了更细粒度的控制，包括在何处以及如何完成自动装配。它的用法和@Required一样，修饰setter方法、构造器、属性或者具有任意名称和/或多个参数的PN方法。</p>
+<ol start="41">
+<li>@Qualifier 注解</li>
+</ol>
+<p>当有多个相同类型的bean却只有一个需要自动装配时，将@Qualifier 注解和@Autowire 注解结合使用以消除这种混淆，指定需要装配的确切的bean。</p>
+<p>Spring数据访问</p>
+<p>42.在Spring框架中如何更有效地使用JDBC?</p>
+<p>使用SpringJDBC 框架，资源管理和错误处理的代价都会被减轻。所以开发者只需写statements 和 queries从数据存取数据，JDBC也可以在Spring框架提供的模板类的帮助下更有效地被使用，这个模板叫JdbcTemplate （例子见这里here）</p>
+<ol start="43">
+<li>JdbcTemplate</li>
+</ol>
+<p>JdbcTemplate 类提供了很多便利的方法解决诸如把数据库数据转变成基本数据类型或对象，执行写好的或可调用的数据库操作语句，提供自定义的数据错误处理。</p>
+<ol start="44">
+<li>Spring对DAO的支持</li>
+</ol>
+<p>Spring对数据访问对象（DAO）的支持旨在简化它和数据访问技术如JDBC，Hibernate or JDO 结合使用。这使我们可以方便切换持久层。编码时也不用担心会捕获每种技术特有的异常。</p>
+<ol start="45">
+<li>使用Spring通过什么方式访问Hibernate?</li>
+</ol>
+<p>在Spring中有两种方式访问Hibernate：</p>
+<p>控制反转 Hibernate Template和 Callback。</p>
+<p>继承 HibernateDAOSupport提供一个AOP 拦截器。</p>
+<ol start="46">
+<li>Spring支持的ORM</li>
+</ol>
+<p>Spring支持以下ORM：</p>
+<p>Hibernate</p>
+<p>iBatis</p>
+<p>JPA (Java Persistence API)</p>
+<p>TopLink</p>
+<p>JDO (Java Data Objects)</p>
+<p>OJB</p>
+<p>47.如何通过HibernateDaoSupport将Spring和Hibernate结合起来？</p>
+<p>用Spring的 SessionFactory 调用 LocalSessionFactory。集成过程分三步：</p>
+<p>配置the Hibernate SessionFactory。</p>
+<p>继承HibernateDaoSupport实现一个DAO。</p>
+<p>在AOP支持的事务中装配。</p>
+<ol start="48">
+<li>Spring支持的事务管理类型</li>
+</ol>
+<p>Spring支持两种类型的事务管理：</p>
+<p>编程式事务管理：这意味你通过编程的方式管理事务，给你带来极大的灵活性，但是难维护。</p>
+<p>声明式事务管理：这意味着你可以将业务代码和事务管理分离，你只需用注解和XML配置来管理事务。</p>
+<ol start="49">
+<li>Spring框架的事务管理有哪些优点？</li>
+</ol>
+<p>它为不同的事务API 如 JTA，JDBC，Hibernate，JPA 和JDO，提供一个不变的编程模式。</p>
+<p>它为编程式事务管理提供了一套简单的API而不是一些复杂的事务API如</p>
+<p>它支持声明式事务管理。</p>
+<p>它和Spring各种数据访问抽象层很好得集成。</p>
+<ol start="50">
+<li>你更倾向用那种事务管理类型？</li>
+</ol>
+<p>大多数Spring框架的用户选择声明式事务管理，因为它对应用代码的影响最小，因此更符合一个无侵入的轻量级容器的思想。声明式事务管理要优于编程式事务管理，虽然比编程式事务管理（这种方式允许你通过代码控制事务）少了一点灵活性。</p>
+<p>Spring面向切面编程（AOP）</p>
+<ol start="51">
+<li>解释AOP</li>
+</ol>
+<p>面向切面的编程，或AOP， 是一种编程技术，允许程序模块化横向切割关注点，或横切典型的责任划分，如日志和事务管理。</p>
+<ol start="52">
+<li>Aspect 切面</li>
+</ol>
+<p>AOP核心就是切面，它将多个类的通用行为封装成可重用的模块，该模块含有一组API提供横切功能。比如，一个日志模块可以被称作日志的AOP切面。根据需求的不同，一个应用程序可以有若干切面。在Spring AOP中，切面通过带有@Aspect注解的类实现。</p>
+<ol start="52">
+<li>在Spring AOP 中，关注点和横切关注的区别是什么？</li>
+</ol>
+<p>关注点是应用中一个模块的行为，一个关注点可能会被定义成一个我们想实现的一个功能。</p>
+<p>横切关注点是一个关注点，此关注点是整个应用都会使用的功能，并影响整个应用，比如日志，安全和数据传输，几乎应用的每个模块都需要的功能。因此这些都属于横切关注点。</p>
+<ol start="54">
+<li>连接点</li>
+</ol>
+<p>连接点代表一个应用程序的某个位置，在这个位置我们可以插入一个AOP切面，它实际上是个应用程序执行Spring AOP的位置。</p>
+<ol start="55">
+<li>通知</li>
+</ol>
+<p>通知是个在方法执行前或执行后要做的动作，实际上是程序执行时要通过SpringAOP框架触发的代码段。</p>
+<p>Spring切面可以应用五种类型的通知：</p>
+<p>before：前置通知，在一个方法执行前被调用。</p>
+<p>after: 在方法执行之后调用的通知，无论方法执行是否成功。</p>
+<p>after-returning: 仅当方法成功完成后执行的通知。</p>
+<p>after-throwing: 在方法抛出异常退出时执行的通知。</p>
+<p>around: 在方法执行之前和之后调用的通知。</p>
+<ol start="56">
+<li>切点</li>
+</ol>
+<p>切入点是一个或一组连接点，通知将在这些位置执行。可以通过表达式或匹配的方式指明切入点。</p>
+<ol start="57">
+<li>什么是引入?</li>
+</ol>
+<p>引入允许我们在已存在的类中增加新的方法和属性。</p>
+<ol start="58">
+<li>什么是目标对象?</li>
+</ol>
+<p>被一个或者多个切面所通知的对象。它通常是一个代理对象。也指被通知（advised）对象。</p>
+<ol start="59">
+<li>什么是代理?</li>
+</ol>
+<p>代理是通知目标对象后创建的对象。从客户端的角度看，代理对象和目标对象是一样的。</p>
+<ol start="60">
+<li>有几种不同类型的自动代理？</li>
+</ol>
+<p>BeanNameAutoProxyCreator</p>
+<p>DefaultAdvisorAutoProxyCreator</p>
+<p>Metadata autoproxying</p>
+<ol start="61">
+<li>什么是织入。什么是织入应用的不同点？</li>
+</ol>
+<p>织入是将切面和到其他应用类型或对象连接或创建一个被通知对象的过程。</p>
+<p>织入可以在编译时，加载时，或运行时完成。</p>
+<ol start="62">
+<li>解释基于XML Schema方式的切面实现。</li>
+</ol>
+<p>在这种情况下，切面由常规类以及基于XML的配置实现。</p>
+<ol start="63">
+<li>解释基于注解的切面实现</li>
+</ol>
+<p>在这种情况下(基于@AspectJ的实现)，涉及到的切面声明的风格与带有java5标注的普通java类一致。</p>
+<p>Spring 的MVC</p>
+<ol start="64">
+<li>什么是Spring的MVC框架？</li>
+</ol>
+<p>Spring 配备构建Web 应用的全功能MVC框架。Spring可以很便捷地和其他MVC框架集成，如Struts，Spring 的MVC框架用控制反转把业务对象和控制逻辑清晰地隔离。它也允许以声明的方式把请求参数和业务对象绑定。</p>
+<ol start="65">
+<li>DispatcherServlet</li>
+</ol>
+<p>Spring的MVC框架是围绕DispatcherServlet来设计的，它用来处理所有的HTTP请求和响应。</p>
+<ol start="66">
+<li>WebApplicationContext</li>
+</ol>
+<p>WebApplicationContext 继承了ApplicationContext 并增加了一些WEB应用必备的特有功能，它不同于一般的ApplicationContext ，因为它能处理主题，并找到被关联的servlet。</p>
+<ol start="67">
+<li>什么是Spring MVC框架的控制器？</li>
+</ol>
+<p>控制器提供一个访问应用程序的行为，此行为通常通过服务接口实现。控制器解析用户输入并将其转换为一个由视图呈现给用户的模型。Spring用一个非常抽象的方式实现了一个控制层，允许用户创建多种用途的控制器。</p>
+<ol start="68">
+<li>@Controller 注解</li>
+</ol>
+<p>该注解表明该类扮演控制器的角色，Spring不需要你继承任何其他控制器基类或引用Servlet API。</p>
+<ol start="69">
+<li>@RequestMapping 注解</li>
+</ol>
+<p>该注解是用来映射一个URL到一个类或一个特定的方处理法上。</p>
+<p>老是说没有答案，现在有答案了，可以关注以下专题“Java高级架构“</p>
 
           
         
@@ -526,6 +1952,10 @@
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
 
 
           </div>
@@ -569,7 +1999,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
