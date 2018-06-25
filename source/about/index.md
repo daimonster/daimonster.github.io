@@ -15,5 +15,4 @@ qq: 546508148
 ```
 
 # 我最近的编码活动
-
-<figure><embed src="https://wakatime.com/share/@fc42d7ed-31e6-4eb7-a1d5-3015986c47d5/d8584559-7ff6-4198-a3dd-e4660313730b.svg"></embed></figure>
+<figure><embed src="https://wakatime.com/share/@fc42d7ed-31e6-4eb7-a1d5-3015986c47d5/38fb99cf-115d-4d08-b969-69334267c542.svg"></embed></figure>
