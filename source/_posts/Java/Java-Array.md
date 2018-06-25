@@ -1,3 +1,12 @@
+---
+title: Java-Array知识积累
+category: Java
+tags:
+    - java
+    - Array
+    - basic acknowledge
+---
+
 ## 数组小知识点总结
 
 ### 直接打印出一个数组
